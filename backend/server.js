@@ -3,11 +3,8 @@ const dotenv = require("dotenv").config();
 const PORT = process.env.PORT || 8000;
 const cors = require("cors");
 const colors = require("colors");
-const connectDB = require("./config/db");
-
+const { connectToDb, getDb } = require("./config/db");
 const journeyRoute = require("./tripsRoute");
-
-connectDB();
 
 const app = express();
 app.use(cors());
@@ -17,6 +14,17 @@ app.use("/api/journey/:id", journeyRoute);
 
 app.use("/api/journey", journeyRoute);
 
-app.listen(PORT, () => {
-  console.log(`Server starting on port ${PORT}`);
+
+// db connect
+
+let db 
+
+
+connectToDb((err) => {
+  if (!err) {
+    app.listen(PORT, () => {
+      console.log(`Server starting on port ${PORT}`);
+    });
+    db = getDb()
+  }
 });
