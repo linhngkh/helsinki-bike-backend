@@ -11,6 +11,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use("/:id", require("./journeyRoute"))
+
 app.use("/api/journey", require("./journeyRoute"));
 
 app.listen(PORT, () => {
