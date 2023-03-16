@@ -5,7 +5,7 @@ const cors = require("cors");
 const colors = require("colors");
 const connectDB = require("./config/db");
 
-const journeyRoute = require("./journeyRoute");
+const journeyRoute = require("./tripsRoute");
 
 connectDB();
 
