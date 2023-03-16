@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Trips = require("./model/tripsModel");
+const Trips = require("./model/Trips");
 const {
   getAllJourney,
   getOneJourney,
