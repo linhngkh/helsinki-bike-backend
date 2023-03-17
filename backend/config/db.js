@@ -1,18 +1,20 @@
 const { MongoClient } = require("mongodb");
 
-let dbConnection
+let dbConnection;
 
 module.exports = {
   connectToDb: (callback) => {
-    MongoClient.connect("mongodb://localhost:27017/bookstore")
+    MongoClient.connect(process.env.MONGO_URI)
       .then((client) => {
         dbConnection = client.db();
         return callback();
       })
+
       .catch((err) => {
         console.log(err);
         return callback(err);
       });
   },
+
   getDb: () => dbConnection,
 };

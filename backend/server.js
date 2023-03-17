@@ -14,17 +14,16 @@ app.use("/api/journey/:id", journeyRoute);
 
 app.use("/api/journey", journeyRoute);
 
-
 // db connect
 
-let db 
-
+let db;
 
 connectToDb((err) => {
+  
   if (!err) {
     app.listen(PORT, () => {
-      console.log(`Server starting on port ${PORT}`);
+      console.log(`Server starting on port and DATABASE CONNECTED ${PORT}`.cyan.underline);
     });
-    db = getDb()
+    db = getDb();
   }
 });
