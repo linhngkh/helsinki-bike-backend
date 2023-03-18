@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const TripsSchema = new mongoose.Schema({
+const tripsSchema = new mongoose.Schema({
   departure: { type: String },
   return: { type: String },
   departure_station_id: { type: Number },
@@ -11,4 +11,4 @@ const TripsSchema = new mongoose.Schema({
   duration: { type: Number },
 });
 
-module.exports = mongoose.model("Trips", TripsSchema);
+module.exports = mongoose.model("Trips", tripsSchema, "citybikeCollection");

@@ -1,20 +1,14 @@
-const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose");
 
-let dbConnection;
-
-module.exports = {
-  connectToDb: (callback) => {
-    MongoClient.connect(process.env.MONGO_URI)
-      .then((client) => {
-        dbConnection = client.db();
-        return callback();
-      })
-
-      .catch((err) => {
-        console.log(err);
-        return callback(err);
-      });
-  },
-
-  getDb: () => dbConnection,
+const connectDB = async () => {
+  try {
+    await mongoose.connect("mongodb://localhost:27017/citybikes", {
+      useUnifiedTopology: true,
+      useNewUrlParser: true,
+    });
+  } catch (error) {
+    console.log(error);
+  }
 };
+
+module.exports = connectDB;
