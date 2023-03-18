@@ -17,6 +17,7 @@ app.use(express.json());
 // fetch all
 
 app.get("/api/journey", async (req, res) => {
+  // making pagination
   const page = req.query.p || 0;
   const tripsPerPage = 30;
   try {
