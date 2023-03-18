@@ -3,9 +3,10 @@ const dotenv = require("dotenv").config();
 const PORT = process.env.PORT || 8000;
 const cors = require("cors");
 const colors = require("colors");
-const Trips = require("./model/Trips");
+
 const mongoose = require("mongoose");
 const connectDB = require("./config/db");
+const tripsRoutes = require("./routes/trips");
 
 // connect to mongodb
 connectDB();
@@ -16,20 +17,7 @@ app.use(express.json());
 
 // fetch all
 
-app.get("/api/journey", async (req, res) => {
-  // making pagination
-  const page = req.query.p || 0;
-  const tripsPerPage = 30;
-  try {
-    const data = await Trips.find({})
-      .skip(page * tripsPerPage)
-      .limit(tripsPerPage);
-    console.log(data);
-    res.send(data);
-  } catch (error) {
-    console.log(error);
-  }
-});
+app.use("/api/journeys", tripsRoutes);
 
 mongoose.connection.once("open", () => {
   console.log("Connected to mongodb".blue.underline);
