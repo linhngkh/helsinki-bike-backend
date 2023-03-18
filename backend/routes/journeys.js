@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const Trips = require("../model/Trips");
+const Trips = require("../model/Journey");
 
 router.get("/", async (req, res) => {
   // making pagination
   const page = req.query.p || 0;
   const tripsPerPage = 30;
   try {
-    const data = Trips.find({})
+    const data = await Trips.find({})
       .skip(page * tripsPerPage)
       .limit(tripsPerPage);
     console.log(data);
@@ -16,9 +16,13 @@ router.get("/", async (req, res) => {
     console.log(error);
   }
 });
+// //localhost:8000/api/journeys?p=300 search by page
 
-router.get("/api/journey/:id", (req, res) => {
-  res.send("ok view 1 id");
+router.get("/:id", async (req, res) => {
+  const singleTrip = await Trips.find({ id: req.params.id }, (err, items) => {
+    if (err) res.status(500).send(error);
+    res.status(200).json(singleTrip);
+  });
 });
 
 module.exports = router;
