@@ -7,7 +7,7 @@ router.get("/", async (req, res) => {
   const page = req.query.p || 0;
   const tripsPerPage = 30;
   try {
-    const data = await Trips.find({})
+    const data = Trips.find({})
       .skip(page * tripsPerPage)
       .limit(tripsPerPage);
     console.log(data);
