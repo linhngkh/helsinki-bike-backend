@@ -21,11 +21,11 @@ app.get("/api/journey", async (req, res) => {
   const page = req.query.p || 0;
   const tripsPerPage = 30;
   try {
-    const value = await Trips.find({})
+    const data = await Trips.find({})
       .skip(page * tripsPerPage)
       .limit(tripsPerPage);
-    console.log(value);
-    res.send(value);
+    console.log(data);
+    res.send(data);
   } catch (error) {
     console.log(error);
   }
