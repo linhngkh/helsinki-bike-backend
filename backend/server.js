@@ -15,10 +15,14 @@ app.use(cors());
 app.use(express.json());
 
 // fetch all
-let db;
+
 app.get("/api/journey", async (req, res) => {
+  const page = req.query.p || 0;
+  const tripsPerPage = 30;
   try {
-    const value = await Trips.find({}).skip(50000).limit(300);
+    const value = await Trips.find({})
+      .skip(page * tripsPerPage)
+      .limit(tripsPerPage);
     console.log(value);
     res.send(value);
   } catch (error) {
