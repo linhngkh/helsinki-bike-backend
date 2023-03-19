@@ -1,6 +1,6 @@
 const express = require("express");
 const dotenv = require("dotenv").config();
-const PORT = process.env.PORT || 8000;
+const PORT = process.env.PORT || 8080;
 const cors = require("cors");
 const colors = require("colors");
 const ExpressError = require("./utils/ExpressError");
@@ -14,9 +14,6 @@ connectDB();
 const app = express();
 app.use(cors());
 app.use(express.json());
-
-// find by id of the trip
-app.use("/api/journeys/:id", tripsRoutes);
 
 // fetch all
 app.use("/api/journeys", tripsRoutes);
