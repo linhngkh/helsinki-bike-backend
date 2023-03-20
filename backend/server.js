@@ -7,7 +7,7 @@ const ExpressError = require("./utils/ExpressError");
 const mongoose = require("mongoose");
 const connectDB = require("./config/db");
 const tripsRoutes = require("./routes/journeys");
-
+const stationsRoutes = require("./routes/stations");
 // connect to mongodb
 connectDB();
 
@@ -15,8 +15,11 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// fetch all
+// fetch all journeys
 app.use("/api/journeys", tripsRoutes);
+
+// fetch all stations
+app.use("/api/stations", stationsRoutes);
 
 app.use((err, req, res, next) => {
   const { statusCode = 500, message = "Something went wrong...!" } = err;
