@@ -5,7 +5,7 @@ const Trips = require("../model/Journey");
 router.get("/", async (req, res) => {
   // making pagination
   const page = req.query.page || 0;
-  const tripsPerPage = 30;
+  const tripsPerPage = 600;
   try {
     const data = await Trips.find({})
       .skip(page * tripsPerPage)
