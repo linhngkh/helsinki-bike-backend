@@ -1,6 +1,8 @@
+const { ObjectId } = require("mongodb");
 const mongoose = require("mongoose");
 
 const stationSchema = new mongoose.Schema({
+  _id: ObjectId,
   nimi: { type: String },
   osoite: { type: String },
 
