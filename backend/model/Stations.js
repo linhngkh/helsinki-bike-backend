@@ -5,7 +5,6 @@ const stationSchema = new mongoose.Schema({
   _id: ObjectId,
   nimi: { type: String },
   osoite: { type: String },
-
   kaupunki: { type: String },
   Kapasiteet: { type: Number },
   x: { type: Number },

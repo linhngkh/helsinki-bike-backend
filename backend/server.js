@@ -3,7 +3,6 @@ const dotenv = require("dotenv").config();
 const PORT = process.env.PORT || 8080;
 const cors = require("cors");
 const colors = require("colors");
-const ExpressError = require("./utils/ExpressError");
 const mongoose = require("mongoose");
 const connectDB = require("./config/db");
 const tripsRoutes = require("./routes/journeys");

@@ -16,6 +16,6 @@ router.get("/", async (req, res) => {
     console.log(error);
   }
 });
-// //localhost:8000/api/journeys?p=300 search by page
+
 
 module.exports = router;
