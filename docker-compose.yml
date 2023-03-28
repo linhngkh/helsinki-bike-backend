@@ -1,29 +1,27 @@
-version: '1'
+version: '3'
 
 services: 
-    # node api service
+# mongo service
+    mongo_db:
+        container_name: citybikes
+        image: mongo:latest
+        restart: always
+        volumes:
+         - mongo_db:/data/db  
+# node api service
     api: 
         build: . 
         ports: 
-         - 5000:8080
+         - "5000:5000"
         volumes:
-            - .:/usr/src/app
+         - .:/usr/src/app
         environment: 
-            PORT: 3000
-            MONGO_URI: mongodb://mongo_db:27017
-            DB_NAME: helsinki_bikes
-            NAME: TrulyMittal
+          PORT: 5000
+          MONGO_URI: mongodb://mongodb:27017
+          DB_NAME: citybikes
+          NAME: LinhNguyen
         depends_on:
-         - mongo_db 
-# mongo service
-    mongo_db:
-        container_name: db_container
-        image: mongo:latest
-        restart: always
-        ports:
-            - 2717:27017
-        volumes:
-        - mongo_db:/data/db  
-
+          - mongo_db 
+    
 volumes: 
     mongo_db: {}

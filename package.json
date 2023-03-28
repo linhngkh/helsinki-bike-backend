@@ -4,7 +4,8 @@
   "description": "pre-assignment",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon backend/server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
