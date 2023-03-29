@@ -29,7 +29,7 @@ app.use((err, req, res, next) => {
 });
 
 mongoose.connection.once("open", () => {
-  console.log("Connected to mongodb".blue.underline);
+  console.log("Connected to MongoDB".blue.underline);
   app.listen(PORT, () => {
     console.log(`Server starting on port ${PORT}`.cyan.underline);
   });

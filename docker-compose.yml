@@ -1,27 +1,25 @@
-version: '3'
+version: '3.0'
 
-services: 
-# mongo service
-    mongo_db:
-        container_name: citybikes
-        image: mongo:latest
-        restart: always
-        volumes:
-         - mongo_db:/data/db  
-# node api service
-    api: 
-        build: . 
-        ports: 
-         - "5000:5000"
-        volumes:
-         - .:/usr/src/app
-        environment: 
-          PORT: 5000
-          MONGO_URI: mongodb://mongodb:27017
-          DB_NAME: citybikes
-          NAME: LinhNguyen
-        depends_on:
-          - mongo_db 
-    
-volumes: 
-    mongo_db: {}
+services:
+  # mongodb service
+  mongo_db:
+    container_name: citybikes
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo_db:/data/db
+  # node api service
+  api: 
+    build: .
+    ports:
+      - 5000:500
+    environment:
+      PORT: 5000
+      MONGODB_URI: mongodb://mongo_db:27017
+      DBNAME: citybikes
+      NAME: linhnguyen
+    depends_on:
+      - mongo_db
+  
+volumes:
+  mongo_db: {}
