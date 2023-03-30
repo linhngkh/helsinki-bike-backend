@@ -1,13 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const Trips = require("../model/Journey");
+const Journeys = require("../model/Journeys");
 
 router.get("/", async (req, res) => {
   // making pagination
   const page = req.query.page || 0;
-  const tripsPerPage = 500;
+  const tripsPerPage = 600;
   try {
-    const data = await Trips.find({})
+    const data = await Journeys.find({})
       .skip(page * tripsPerPage)
       .limit(tripsPerPage);
     console.log(data);
@@ -16,6 +16,5 @@ router.get("/", async (req, res) => {
     console.log(error);
   }
 });
-
 
 module.exports = router;
