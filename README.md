@@ -1,2 +1,2 @@
-## helsinki-bike-backend is one of the pre-assignment part for front-end below: 
-## [Front-end](https://github.com/linhngkh/helsinki-bike-frontend)
+### helsinki-bike-backend is one part of the pre-assignment. Front-end below: 
+## [Front-end-part](https://github.com/linhngkh/helsinki-bike-frontend)
