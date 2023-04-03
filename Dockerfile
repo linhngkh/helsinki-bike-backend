@@ -1,5 +1,5 @@
 # pull base image
-FROM node:18
+FROM node:18-alpine
 # define working directory
 WORKDIR /usr/src/app
 
@@ -9,8 +9,6 @@ RUN npm ci
 
 # copy everything in current dir
 COPY . .
-# set environment variables
-ENV PORT=5000
 
 EXPOSE 5000
 # define default command
