@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 5000
 # define default command
-CMD ["npm", "start", "dev"]
+CMD ["npm", "run", "dev"]
