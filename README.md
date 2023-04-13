@@ -6,8 +6,10 @@
 * NPM: 9.5.1
 * Docker
 ## Setup
-1. Clone the repository to your local machine.
+1. Clone the repository to your local machine. ``git clone https://github.com/linhngkh/helsinki-bike-backend.git``
 2. Open the project directory in your terminal.
+``cd helsinki-bike-backend``
+then ``cd backend``
 3. Run ``npm install`` to install all the required packages and dependencies.
 ## Running the Project
 1. Start the MongoDB container by running the command ``docker-compose up -d`` in your terminal. This will create a MongoDB instance and expose it on port 27017.
