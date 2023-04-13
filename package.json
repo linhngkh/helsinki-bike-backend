@@ -2,7 +2,7 @@
   "name": "helsinki-bike-app",
   "version": "1.0.0",
   "description": "pre-assignment",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
     "dev": "nodemon backend/server.js"
