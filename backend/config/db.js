@@ -1,11 +1,13 @@
 const mongoose = require("mongoose");
 
+const db =
+  "mongodb+srv://linhng:linhng123@cluster0.ubkr5bf.mongodb.net/citybikes";
+
 const connectDB = async () => {
   try {
-    await mongoose.connect(process.env.MONGO_URI, {
+    await mongoose.connect(db, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      dbName: process.env.DB_NAME,
     });
   } catch (error) {
     console.log(error.message);
