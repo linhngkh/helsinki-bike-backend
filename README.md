@@ -20,7 +20,7 @@
 #### Running backend in Docker 
 You will see on the file that I tried to deploy backend on Docker but there are some issues when I tried to connect to MongoDB running in Docker container(for ex.: port mapping local mongodb(mongodb://127.0.0.1:27017), it shows that  have connected with database but the database is different). I think I will figure it out in near future. 
 #### Running backend in Cloud
-Instead, I deployed backend on Vercel by creating vercel.json file. 
+Instead, I deployed backend on Vercel:
 Navigate to these links under to access to database: 
  * https://helsinki-bike-backend.vercel.app/api/journeys
  * https://helsinki-bike-backend.vercel.app/api/stations
