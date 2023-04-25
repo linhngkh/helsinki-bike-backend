@@ -10,7 +10,7 @@
 ``cd helsinki-bike-backend``
 3. Run ``npm install`` to install all the required packages and dependencies.
 ## Running the Project locally
-4. Make an environment variables ``.env``file in the application's root directory and paste this MongoDB Atlas link ``MONGO_URI=mongodb+srv://linhng:linhng123@cluster0.ubkr5bf.mongodb.net/citybikes`` into it. 
+
 2. Run ``npm start`` to start the server. This will start the server on port 5000 and connected to MongoDB. 
 3. Open your browser and navigate to: 
 * http://localhost:5000/api/journeys for accessing Journeys database. 
