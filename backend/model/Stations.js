@@ -6,7 +6,7 @@ const stationSchema = new mongoose.Schema({
     required: true,
   },
   ID: {
-    type: mongoose.SchemaTypes.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Stations",
   },
   Nimi: {
@@ -52,6 +52,14 @@ const stationSchema = new mongoose.Schema({
   y: {
     type: Number,
     required: true,
+  },
+});
+
+stationSchema.set("toJSON", {
+  transform: (document, returnedObject) => {
+    returnedObject.id = returnedObject._id.toString();
+    delete returnedObject._id;
+    delete returnedObject.__v;
   },
 });
 
