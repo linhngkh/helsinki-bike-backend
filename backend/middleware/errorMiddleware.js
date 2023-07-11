@@ -1,6 +1,6 @@
 // error for accessing routes that doesn't exist
 const notFound = (req, res, next) => {
-  const error = new Error(`Not Found - ${req.originalUrl}`);
+  const error = new Error(`Unknown endpoint- ${req.originalUrl}`);
   res.status(404);
   next(error);
 };
@@ -19,4 +19,4 @@ const errorHandler = (error, req, res, next) => {
   });
 };
 
-export { notFound, errorHandler };
+module.exports = { notFound, errorHandler };

@@ -7,9 +7,9 @@ const config = require("./utils/config");
 const journeyRoute = require("./controllers/journeys");
 const stationsRoute = require("./controllers/stations");
 const bodyParser = require("body-parser");
-const middleware = require("./utils/middleware");
 const logger = require("./utils/logger");
-
+const middleware = require("./utils/middleware");
+const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 // connect to mongodb
 logger.info("Connecting to ", config.MONGODB_URI);
 
@@ -33,7 +33,7 @@ app.use("/api/journeys", journeyRoute);
 // fetch all stations
 app.use("/api/stations", stationsRoute);
 
-app.use(middleware.unknownEndPoint);
-app.use(middleware.errorHandler);
+app.use(notFound);
+app.use(errorHandler);
 
 module.exports = app;
